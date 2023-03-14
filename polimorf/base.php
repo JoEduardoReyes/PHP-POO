@@ -1,5 +1,12 @@
 <?php
 
+// imports
+
+require_once("user.php");
+require_once("admin.php");
+require_once("guest.php");
+
+
 abstract class Base {
   protected $name;
   private function getClassName() {
@@ -8,22 +15,6 @@ abstract class Base {
   public function login() {
     return "Mi nombre es $this->name desde la clase {$this->getClassName()}";
   }
-}
-
-class Admin extends Base {
-  public function __construct($name) {
-    $this->name = $name;
-  }
-}
-
-class User extends Base {
-  public function __construct($name) {
-    $this->name = $name;
-  }
-}
-
-class Guest extends Base {
-  protected $name = "invitado";
 }
 
 $guest = new Guest();
